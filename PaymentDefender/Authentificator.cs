@@ -10,7 +10,7 @@ namespace PaymentDefender
     {
         public static void Authentificate(string email, string passwordHesh) // Сделать проверку параметров из файла
         {
-            SessionManager.AddSession(new Session(Role.User)); // Сделать получение роли из json-файла 
+            SessionManager.AddSession(Role.User); // Сделать получение роли из json-файла 
         }
     }
 }

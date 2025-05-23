@@ -9,9 +9,9 @@ namespace PaymentDefender
     public static class SessionManager
     {
         static List<ISession> Sessions = new List<ISession>();
-        public static void AddSession(ISession session)
+        public static void AddSession(Role role)
         {
-            Sessions.Add(session);
+            Sessions.Add(new Session(role));
         }
     }
 }
