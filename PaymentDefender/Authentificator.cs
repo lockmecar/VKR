@@ -8,9 +8,10 @@ namespace PaymentDefender
 {
     public static class Authentificator
     {
-        public static void Authentificate(string email, string passwordHesh) // Сделать проверку параметров из файла
+        public static int Authentificate(string email, string passwordHesh) // Сделать проверку параметров из файла
         {
-            SessionManager.AddSession(Role.User); // Сделать получение роли из json-файла 
+            int id = SessionManager.AddSession(Role.User);  // Сделать получение роли из json-файла 
+            return id;
         }
     }
 }

@@ -8,9 +8,9 @@ namespace PaymentDefender
 {
     public class Session : ISession
     {
-        public Session(Role role)
+        public Session(int id, Role role)
         {
-            Id = IdGenerator.GenerateUniqueId();
+            Id = id;
             this.role = role;
         }
 
