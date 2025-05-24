@@ -10,8 +10,17 @@ namespace PaymentDefender
     {
         public static int Authentificate(string email, string passwordHesh) // Сделать проверку параметров из файла
         {
-            int id = SessionManager.AddSession(Role.User);  // Сделать получение роли из json-файла 
-            return id;
+            bool Auth = true;
+            if (Auth)
+            {
+                string path = "Z:\\projects\\learning\\VKR\\PaymentDefender\\Sources\\client.json";
+                JsonFileManager.ReadObject<IClient>(path);
+
+
+                int id = SessionManager.AddSession(Role.User);  // Сделать получение роли из json-файла 
+                return id;
+            }
+            
         }
     }
 }
