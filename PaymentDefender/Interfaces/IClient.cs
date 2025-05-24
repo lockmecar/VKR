@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace PaymentDefender
 {
-    public interface IClient
+    public interface IClient : IPerson
     {
-        string Fio { get; set; }
-        int Age { get; set; }
-        Gender gender { get; set; }
         string CountryLiving { get; set; } // Страна проживания
         string Citizenship { get; set; } // Гражданство
         FamilySet familySet { get; set; } // Семейное положение

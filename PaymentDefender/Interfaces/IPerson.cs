@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace PaymentDefender
 {
-    public enum FamilySet : byte
+    public interface IPerson
     {
-        Married,
-        NotMarried
+        string[] FIO { get; }
+        int Age { get; set; }
+        Gender Gender { get; set; }
     }
 }
