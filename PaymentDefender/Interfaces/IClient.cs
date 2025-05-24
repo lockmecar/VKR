@@ -20,5 +20,6 @@ namespace PaymentDefender
         string Email { get; set; }
         string PasswordHesh { get; set; } // Хэш пароля
         int SessionId { get; set; } // ID сессии
+        public void Authentificate(); // Метод аутентификации
     }
 }

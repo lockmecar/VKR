@@ -10,6 +10,6 @@ namespace PaymentDefender
     {
         string[] FIO { get; }
         int Age { get; set; }
-        Gender Gender { get; set; }
+        Gender Gender { get; }
     }
 }

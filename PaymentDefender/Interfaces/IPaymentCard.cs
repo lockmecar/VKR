@@ -10,7 +10,7 @@ namespace PaymentDefender
     {
         int Number {  get; set; }
         DateTime Date { get; set; } // Дата окончания обслуживания
-        string Cvv { get; set; }
+        string Cvv { get; set; }    // Хэш
         IClient Holder { get; set; } // Держатель
         PaymentSystem paymentSystem { get; set; } // Платежная система
     }
