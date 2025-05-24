@@ -20,7 +20,7 @@ namespace PaymentDefender
                 int id = SessionManager.AddSession(Role.User);  // Сделать получение роли из json-файла 
                 return id;
             }
-            
+            else return -1;
         }
     }
 }
