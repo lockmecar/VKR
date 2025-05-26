@@ -8,6 +8,6 @@ namespace PaymentDefender
 {
     public interface ISessionManager
     {
-        public void AddSession(Role role);
+        public void AddSession();
     }
 }

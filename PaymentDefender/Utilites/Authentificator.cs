@@ -13,11 +13,11 @@ namespace PaymentDefender
             bool Auth = true;
             if (Auth)
             {
-                string path = "Z:\\projects\\learning\\VKR\\PaymentDefender\\Sources\\client.json";
-                JsonFileManager.ReadObject<IClient>(path);
+                string path = "Z:\\projects\\learning\\VKR\\PaymentDefender\\Sources\\Obama.json";
+                User buf = JsonFileManager.ReadObject<User>(path);
 
 
-                int id = SessionManager.AddSession(Role.User);  // Сделать получение роли из json-файла 
+                int id = SessionManager.AddSession();   
                 return id;
             }
             else return -1;

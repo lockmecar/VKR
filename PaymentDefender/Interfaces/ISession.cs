@@ -9,6 +9,5 @@ namespace PaymentDefender
     public interface ISession
     {
         int Id { get; set; }
-        Role role { get; set; }
     }
 }

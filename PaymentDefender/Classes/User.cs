@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace PaymentDefender
 {
-    public class Client : IClient
+    public class User : IPerson
     {
-        public Client(string fio, int age, Gender gender, string countryLiving, string citizenship, FamilySet familySet, 
-            float incomeLevel, float savings, PaymentCard[] paymentCards, long phoneNumber, string email, string passwordHesh)
+        public User(string fio, int age, Gender gender, string countryLiving, string citizenship, FamilySet familySet,
+            float incomeLevel, float savings, PaymentCard[] paymentCards, long phoneNumber, string emailLogin, string passwordHesh)
         {
             FIO = fio;
             Age = age;
@@ -22,7 +22,7 @@ namespace PaymentDefender
             Savings = savings;
             PaymentCards = paymentCards;
             PhoneNumber = phoneNumber;
-            Email = email;
+            EmailLogin = emailLogin;
             PasswordHesh = MD5Hasher.GetHash(passwordHesh);
             SessionId = -1;
         }
@@ -30,25 +30,26 @@ namespace PaymentDefender
         public string FIO { get; }
         public int Age { get; set; }
         public Gender Gender { get; }
-        public string CountryLiving { get; set; }
-        public string Citizenship { get; set; }
-        public FamilySet FamilySet { get; set; }
-        public float IncomeLevel { get; set; }
-        public float Savings { get; set; }
-        public PaymentCard[] PaymentCards { get; set; }
+        public string CountryLiving { get; set; } // Страна проживания
+        public string Citizenship { get; set; } // Гражданство
+        public FamilySet FamilySet { get; set; } // Семейное положение
+        public float IncomeLevel { get; set; } // Уровень доходов
+        public float Savings { get; set; } // Сбережения
+        public PaymentCard[] PaymentCards { get; set; } // Массив платежных карт
         public long PhoneNumber { get; set; }
-        public string Email { get; set; }
-        public string PasswordHesh { get; set; }
-        public int SessionId { get; set; }
+        public string EmailLogin { get; set; }
+        public string PasswordHesh { get; set; } // Хэш пароля
+        public int SessionId { get; set; } // ID сессии
 
         public void Authentificate()
         {
             throw new NotImplementedException();
         }
 
-        public void PrintClientInfo()
+        public void PrintUserInfo()
         {
-            Console.WriteLine($"Клиент {FIO}:\n\n" +
+            Console.WriteLine($"Пользователь {EmailLogin}:\n\n" +
+                $"   ФИО: {FIO}\n" +
                 $"   Возраст: {Age}\n" +
                 $"   Пол: {Gender}\n" +
                 $"   Страна проживания: {CountryLiving}\n" +
@@ -58,14 +59,14 @@ namespace PaymentDefender
                 $"   Сбережения: {Savings} руб\n" +
                 $"   Количество платежных карт: {PaymentCards.Length}\n" +
                 $"   Номер телефона: {PhoneNumber}\n" +
-                $"   Электронная почта: {Email}\n" +
+                $"   Электронная почта: {EmailLogin}\n" +
                 $"   Хэш пароля: {PasswordHesh}\n\n");
         }
 
-        public void PrintClientCards()
+        public void PrintUserCards()
         {
-            Console.WriteLine($"Платежные карты клиента {FIO}:\n");
-            foreach ( var card in PaymentCards )
+            Console.WriteLine($"Платежные карты пользователя {EmailLogin}:\n");
+            foreach (var card in PaymentCards)
             {
                 card.PrintCard();
             }

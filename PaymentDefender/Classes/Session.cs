@@ -8,14 +8,12 @@ namespace PaymentDefender
 {
     public class Session : ISession
     {
-        public Session(int id, Role role)
+        public Session(int id)
         {
             Id = id;
-            this.role = role;
         }
 
         public int Id { get; set; }
-        public Role role { get; set; }
 
     }
 }

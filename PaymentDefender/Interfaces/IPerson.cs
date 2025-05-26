@@ -11,5 +11,13 @@ namespace PaymentDefender
         public string FIO { get; }
         public int Age { get; set; }
         public Gender Gender { get; }
+        public string CountryLiving { get; set; } // Страна проживания
+        public string Citizenship { get; set; } // Гражданство
+        public FamilySet FamilySet { get; set; } // Семейное положение
+        public float IncomeLevel { get; set; } // Уровень доходов
+        public float Savings { get; set; } // Сбережения
+        public PaymentCard[] PaymentCards { get; set; } // Массив платежных карт
+        public long PhoneNumber { get; set; }
+        public void Authentificate(); // Метод аутентификации
     }
 }

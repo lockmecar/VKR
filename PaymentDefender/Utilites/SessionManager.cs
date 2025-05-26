@@ -9,10 +9,10 @@ namespace PaymentDefender
     public static class SessionManager
     {
         static Dictionary<int,Session> Sessions = new Dictionary<int,Session>();
-        public static int AddSession(Role role)
+        public static int AddSession()
         {
             int id = IdGenerator.GenerateUniqueId();
-            Sessions.Add(id, new Session(id, role));
+            Sessions.Add(id, new Session(id));
             return id;
         }
     }
