@@ -1,4 +1,6 @@
-﻿namespace PaymentDefender
+﻿using PaymentDefender.Classes;
+
+namespace PaymentDefender
 {
     
 

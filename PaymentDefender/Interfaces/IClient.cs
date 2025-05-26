@@ -9,17 +9,17 @@ namespace PaymentDefender
 {
     public interface IClient : IPerson
     {
-        string CountryLiving { get; set; } // Страна проживания
-        string Citizenship { get; set; } // Гражданство
-        FamilySet familySet { get; set; } // Семейное положение
-        float IncomeLevel { get; set; } // Уровень доходов
-        float Savings { get; set; } // Сбережения
-        IPaymentCard[] PaymentCards { get; set; } // Массив платежных карт
-        IPAddress ip {  get; set; } // IP-адресс
-        int PhoneNumber { get; set; }
-        string Email { get; set; }
-        string PasswordHesh { get; set; } // Хэш пароля
-        int SessionId { get; set; } // ID сессии
+        public string CountryLiving { get; set; } // Страна проживания
+        public string Citizenship { get; set; } // Гражданство
+        public FamilySet familySet { get; set; } // Семейное положение
+        public float IncomeLevel { get; set; } // Уровень доходов
+        public float Savings { get; set; } // Сбережения
+        public IPaymentCard[] PaymentCards { get; set; } // Массив платежных карт
+        public IPAddress ip {  get; set; } // IP-адресс
+        public int PhoneNumber { get; set; }
+        public string Email { get; set; }
+        public string PasswordHesh { get; set; } // Хэш пароля
+        public int SessionId { get; set; } // ID сессии
         public void Authentificate(); // Метод аутентификации
     }
 }

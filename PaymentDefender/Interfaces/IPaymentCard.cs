@@ -8,10 +8,11 @@ namespace PaymentDefender
 {
     public interface IPaymentCard
     {
-        int Number {  get; set; }
-        DateTime Date { get; set; } // Дата окончания обслуживания
-        string Cvv { get; set; }    // Хэш
-        IClient Holder { get; set; } // Держатель
-        PaymentSystem paymentSystem { get; set; } // Платежная система
+        public string Bank {  get; set; }
+        public int Number {  get; set; }
+        public DateTime Date { get; set; } // Дата окончания обслуживания
+        public string Cvv { get; set; }    // Хэш
+        public IClient Holder { get; set; } // Держатель
+        public PaymentSystem PaymentSystem { get; set; } // Платежная система
     }
 }

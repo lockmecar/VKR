@@ -8,8 +8,8 @@ namespace PaymentDefender
 {
     public interface IPerson
     {
-        string[] FIO { get; }
-        int Age { get; set; }
-        Gender Gender { get; }
+        public string[] FIO { get; }
+        public int Age { get; set; }
+        public Gender Gender { get; }
     }
 }
