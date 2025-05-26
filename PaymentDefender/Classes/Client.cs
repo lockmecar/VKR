@@ -5,12 +5,12 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PaymentDefender.Classes
+namespace PaymentDefender
 {
     public class Client : IClient
     {
         public Client(string fio, int age, Gender gender, string countryLiving, string citizenship, FamilySet familySet, 
-            float incomeLevel, float savings, IPaymentCard[] paymentCards, long phoneNumber, string email, string password)
+            float incomeLevel, float savings, PaymentCard[] paymentCards, long phoneNumber, string email, string passwordHesh)
         {
             FIO = fio;
             Age = age;
@@ -23,7 +23,7 @@ namespace PaymentDefender.Classes
             PaymentCards = paymentCards;
             PhoneNumber = phoneNumber;
             Email = email;
-            PasswordHesh = MD5Hasher.GetHash(password);
+            PasswordHesh = MD5Hasher.GetHash(passwordHesh);
             SessionId = -1;
         }
 
@@ -35,7 +35,7 @@ namespace PaymentDefender.Classes
         public FamilySet FamilySet { get; set; }
         public float IncomeLevel { get; set; }
         public float Savings { get; set; }
-        public IPaymentCard[] PaymentCards { get; set; }
+        public PaymentCard[] PaymentCards { get; set; }
         public long PhoneNumber { get; set; }
         public string Email { get; set; }
         public string PasswordHesh { get; set; }
@@ -46,9 +46,9 @@ namespace PaymentDefender.Classes
             throw new NotImplementedException();
         }
 
-        public void PrintClient()
+        public void PrintClientInfo()
         {
-            Console.WriteLine($"Клиент {FIO}:\n" +
+            Console.WriteLine($"Клиент {FIO}:\n\n" +
                 $"   Возраст: {Age}\n" +
                 $"   Пол: {Gender}\n" +
                 $"   Страна проживания: {CountryLiving}\n" +
@@ -59,7 +59,16 @@ namespace PaymentDefender.Classes
                 $"   Количество платежных карт: {PaymentCards.Length}\n" +
                 $"   Номер телефона: {PhoneNumber}\n" +
                 $"   Электронная почта: {Email}\n" +
-                $"   Хэш пароля: {PasswordHesh}\n");
+                $"   Хэш пароля: {PasswordHesh}\n\n");
+        }
+
+        public void PrintClientCards()
+        {
+            Console.WriteLine($"Платежные карты клиента {FIO}:\n");
+            foreach ( var card in PaymentCards )
+            {
+                card.PrintCard();
+            }
         }
     }
 }
