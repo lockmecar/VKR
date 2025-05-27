@@ -14,7 +14,7 @@ namespace PaymentDefender
             string filePath = "Z:\\projects\\learning\\VKR\\PaymentDefender\\Sources\\" + user.EmailLogin + ".json";
             if (File.Exists(filePath))
             {
-                User buf = JsonFileManager.ReadObject<User>(filePath);
+                User buf = JsonFileManager.ReadObject<User>(user.EmailLogin);
 
                 if (user.PasswordHesh == buf.PasswordHesh)
                 {

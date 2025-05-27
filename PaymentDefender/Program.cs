@@ -22,7 +22,7 @@ namespace PaymentDefender
 
             JsonFileManager.WriteObject(user2);
 
-            Authentificator.Authentificate(user1);
+            Authentificator.Authentificate(user2);
         }
     }
 
