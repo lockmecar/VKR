@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -7,43 +8,25 @@ using System.Threading.Tasks;
 
 namespace PaymentDefender
 {
-    public class User : IPerson
+    public class User : Person
     {
-        public User(string fio, int age, Gender gender, string countryLiving, string citizenship, FamilySet familySet,
-            float incomeLevel, float savings, PaymentCard[] paymentCards, long phoneNumber, string emailLogin, string passwordHesh)
+        public User(string fio, int age, Gender gender, string countryLiving, string citizenship, FamilySet familySet, float incomeLevel,
+            float savings, PaymentCard[] paymentCards, long phoneNumber, string emailLogin, string passwordHesh)
+            : base(fio, age, gender, countryLiving, citizenship, familySet, incomeLevel, savings, paymentCards, phoneNumber)
         {
-            FIO = fio;
-            Age = age;
-            Gender = gender;
-            CountryLiving = countryLiving;
-            Citizenship = citizenship;
-            FamilySet = familySet;
-            IncomeLevel = incomeLevel;
-            Savings = savings;
-            PaymentCards = paymentCards;
-            PhoneNumber = phoneNumber;
             EmailLogin = emailLogin;
-            PasswordHesh = MD5Hasher.GetHash(passwordHesh);
+            PasswordHesh = passwordHesh;
             SessionId = -1;
         }
 
-        public string FIO { get; }
-        public int Age { get; set; }
-        public Gender Gender { get; }
-        public string CountryLiving { get; set; } // Страна проживания
-        public string Citizenship { get; set; } // Гражданство
-        public FamilySet FamilySet { get; set; } // Семейное положение
-        public float IncomeLevel { get; set; } // Уровень доходов
-        public float Savings { get; set; } // Сбережения
-        public PaymentCard[] PaymentCards { get; set; } // Массив платежных карт
-        public long PhoneNumber { get; set; }
-        public string EmailLogin { get; set; }
+        public string EmailLogin { get; set; } // Логин
         public string PasswordHesh { get; set; } // Хэш пароля
         public int SessionId { get; set; } // ID сессии
 
-        public void Authentificate()
+        public static User Create(IPerson person, string emailLogin, string password)
         {
-            throw new NotImplementedException();
+            return new User(person.FIO, person.Age, person.Gender, person.CountryLiving, person.Citizenship, 
+                person.FamilySet, person.IncomeLevel, person.Savings, person.PaymentCards, person.PhoneNumber, emailLogin, password);
         }
 
         public void PrintUserInfo()
@@ -62,7 +45,6 @@ namespace PaymentDefender
                 $"   Электронная почта: {EmailLogin}\n" +
                 $"   Хэш пароля: {PasswordHesh}\n\n");
         }
-
         public void PrintUserCards()
         {
             Console.WriteLine($"Платежные карты пользователя {EmailLogin}:\n");
@@ -70,6 +52,11 @@ namespace PaymentDefender
             {
                 card.PrintCard();
             }
+        }
+
+        public override string ToString()
+        {
+            return EmailLogin;
         }
     }
 }

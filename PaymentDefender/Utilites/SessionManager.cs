@@ -15,5 +15,13 @@ namespace PaymentDefender
             Sessions.Add(id, new Session(id));
             return id;
         }
+
+        public static void PrintSessions()
+        {
+            foreach (var session in Sessions)
+            {
+                Console.WriteLine(session);
+            }
+        }
     }
 }

@@ -8,19 +8,32 @@ namespace PaymentDefender
 {
     public static class Authentificator
     {
-        public static int Authentificate(string email, string passwordHesh) // Сделать проверку параметров из файла
+        public static int Authentificate(User user) 
         {
-            bool Auth = true;
-            if (Auth)
+
+            string filePath = "Z:\\projects\\learning\\VKR\\PaymentDefender\\Sources\\" + user.EmailLogin + ".json";
+            if (File.Exists(filePath))
             {
-                string path = "Z:\\projects\\learning\\VKR\\PaymentDefender\\Sources\\Obama.json";
-                User buf = JsonFileManager.ReadObject<User>(path);
+                User buf = JsonFileManager.ReadObject<User>(filePath);
 
-
-                int id = SessionManager.AddSession();   
-                return id;
+                if (user.PasswordHesh == buf.PasswordHesh)
+                {
+                    int id = SessionManager.AddSession();
+                    Console.WriteLine($"Аутентификация успешна, id сессии: {id}");
+                    return id;
+                }
+                else
+                {
+                    Console.WriteLine("Аутентификация провалена");
+                    return -1;
+                }
             }
-            else return -1;
+            else
+            {
+                Console.WriteLine("Аутентификация провалена");
+                return -1;
+            }
+
         }
     }
 }

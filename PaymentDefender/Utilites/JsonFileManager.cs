@@ -6,8 +6,9 @@ namespace PaymentDefender
 {
     public static class JsonFileManager
     {
-        public static void WriteObject<T>(T obj, string filePath) where T : class // сериализация объекта класса в файл по заданному пути
+        public static void WriteObject<T>(T obj) where T : class // сериализация объекта класса в файл по заданному пути
         {
+            string filePath = "Z:\\projects\\learning\\VKR\\PaymentDefender\\Sources\\" + obj.ToString() + ".json";
             if (!Directory.Exists(Path.GetDirectoryName(filePath)))
             {
                 Directory.CreateDirectory(Path.GetDirectoryName(filePath));
