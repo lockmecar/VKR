@@ -18,8 +18,9 @@ namespace PaymentDefender
             File.WriteAllText(filePath, jsonString);
         }
 
-        public static T ReadObject<T>(string filePath) where T : class        // десериализация объекта класса из файла по заданному пути
+        public static T ReadObject<T>(string emailLogin) where T : class  // десериализация объекта класса из файла по заданному пути
         {
+            string filePath = "Z:\\projects\\learning\\VKR\\PaymentDefender\\Sources\\" + emailLogin + ".json";
             if (!File.Exists(filePath))
             {
                 throw new FileNotFoundException("Файл не найден по указанному пути.", filePath);
