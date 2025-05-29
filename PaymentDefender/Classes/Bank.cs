@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace PaymentDefender
 {
-    public class Bank
+    public static class Bank
     {
-        public Bank(List<string> logins)
+        public static Bank(List<string> logins)
         {
             Users = new List<User>();
             foreach (string log in logins)
@@ -17,20 +17,21 @@ namespace PaymentDefender
             }
         }
 
-        private List<User> Users { get; set; }
+        public static List<User> Users { get; set; }
+        public static Dictionary<int, Session> Sessions = new Dictionary<int, Session>();
 
-        public void AddUser(User user)
+        public static void AddUser(User user)
         {
             Users.Add(user);
         }
-        public void PrintAllUsers()
+        public static void PrintAllUsers()
         {
             foreach (var user in Users)
             {
                 user.PrintUserInfo();
             }
         }
-        public List<User> GetUsersByCard(string cardId)
+        public static List<User> GetUsersByCard(string cardId)
         {
             return Users.Where(u => u.PaymentCards.Any(pc => pc.CardID == cardId)).ToList();
         }
