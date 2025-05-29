@@ -8,8 +8,14 @@ namespace PaymentDefender
 {
     public static class Bank
     {
-        public static Bank(List<string> logins)
+        static Bank()
         {
+            List<string> logins = new List<string>()
+            {
+                "ivan@yandex.ru",
+                "login@gmail.com",
+                "petrov@yandex.ru"
+            };
             Users = new List<User>();
             foreach (string log in logins)
             {
