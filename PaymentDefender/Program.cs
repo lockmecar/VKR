@@ -8,9 +8,9 @@ namespace PaymentDefender
     {
         static void Main(string[] args)
         {
-            Bank bank = new Bank(new List<string> { "login@gmail.com", "ivan@yandex.ru", "petrov@yandex.ru" });
+            
 
-            bank.PrintAllUsers();
+            Bank.PrintAllUsers();
 
 
             //User user = JsonFileManager.ReadObject<User>("ivan@yandex.ru");
