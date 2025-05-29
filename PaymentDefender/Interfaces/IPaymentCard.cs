@@ -9,7 +9,7 @@ namespace PaymentDefender
     public interface IPaymentCard
     {
         public string Bank {  get; set; }
-        public int Number {  get; set; }
+        public string CardID {  get; set; }
         public DateTime Date { get; set; } // Дата окончания обслуживания
         public string Cvv { get; set; }    // Хэш
         public string FioHolder { get; set; } // ФИО держателя

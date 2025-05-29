@@ -8,17 +8,17 @@ namespace PaymentDefender
 {
     public class PaymentCard : IPaymentCard
     {
-        public PaymentCard(string bank, int number, DateTime date, string cvv, string fioHolder, PaymentSystem paymentSystem)
+        public PaymentCard(string bank, string cardID, DateTime date, string cvv, string fioHolder, PaymentSystem paymentSystem)
         {
             Bank = bank;
-            Number = number;
+            CardID = cardID;
             Date = date;
             Cvv = MD5Hasher.GetHash(cvv);
             FioHolder = fioHolder;
             PaymentSystem = paymentSystem;
         }
         public string Bank { get; set; }
-        public int Number { get; set; }
+        public string CardID { get; set; }
         public DateTime Date { get; set; }
         public string Cvv { get; set; }
         public string FioHolder { get; set; }
@@ -27,7 +27,7 @@ namespace PaymentDefender
         public void PrintCard()
         {
             Console.WriteLine($"Платежная карта {Bank}:\n" +
-                $"Номер карты: {Number}\n" +
+                $"Номер карты: {CardID}\n" +
                 $"Срок годности: {Date}\n" +
                 $"Хэш CVV: {Cvv}\n" +
                 $"Держатель: {FioHolder}\n" +

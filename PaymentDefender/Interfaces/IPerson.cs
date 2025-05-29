@@ -16,7 +16,7 @@ namespace PaymentDefender
         public FamilySet FamilySet { get; set; } // Семейное положение
         public float IncomeLevel { get; set; } // Уровень доходов
         public float Savings { get; set; } // Сбережения
-        public PaymentCard[] PaymentCards { get; set; } // Массив платежных карт
+        public List<PaymentCard> PaymentCards { get; set; } // Массив платежных карт
         public long PhoneNumber { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace PaymentDefender
     public class User : Person
     {
         public User(string fio, int age, Gender gender, string countryLiving, string citizenship, FamilySet familySet, float incomeLevel,
-            float savings, PaymentCard[] paymentCards, long phoneNumber, string emailLogin, string passwordHesh)
+            float savings, List<PaymentCard> paymentCards, long phoneNumber, string emailLogin, string passwordHesh)
             : base(fio, age, gender, countryLiving, citizenship, familySet, incomeLevel, savings, paymentCards, phoneNumber)
         {
             EmailLogin = emailLogin;
@@ -40,7 +40,7 @@ namespace PaymentDefender
                 $"   Семейное положение: {FamilySet}\n" +
                 $"   Средние месячные доходы: {IncomeLevel} руб\n" +
                 $"   Сбережения: {Savings} руб\n" +
-                $"   Количество платежных карт: {PaymentCards.Length}\n" +
+                $"   Количество платежных карт: {PaymentCards.Count}\n" +
                 $"   Номер телефона: {PhoneNumber}\n" +
                 $"   Электронная почта: {EmailLogin}\n" +
                 $"   Хэш пароля: {PasswordHesh}\n\n");

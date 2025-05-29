@@ -9,7 +9,7 @@ namespace PaymentDefender
     public class Person : IPerson
     {
         public Person(string fio, int age, Gender gender, string countryLiving, string citizenship, FamilySet familySet,
-            float incomeLevel, float savings, PaymentCard[] paymentCards, long phoneNumber)
+            float incomeLevel, float savings, List<PaymentCard> paymentCards, long phoneNumber)
         {
             FIO = fio;
             Age = age;
@@ -30,7 +30,7 @@ namespace PaymentDefender
         public FamilySet FamilySet { get; set; } // Семейное положение
         public float IncomeLevel { get; set; } // Уровень доходов
         public float Savings { get; set; } // Сбережения
-        public PaymentCard[] PaymentCards { get; set; } // Массив платежных карт
+        public List<PaymentCard> PaymentCards { get; set; } // Массив платежных карт
         public long PhoneNumber { get; set; }
     }
 }
