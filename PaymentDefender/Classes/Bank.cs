@@ -40,6 +40,10 @@ namespace PaymentDefender
                 user.PrintUserInfo();
             }
         }
+        public static int FindIndexByLogin(string login)
+        {
+            return Users.FindIndex(u => u.EmailLogin == login);
+        }
         public static List<User> GetUsersByCard(string cardId)
         {
             return Users.Where(u => u.PaymentCards.Any(pc => pc.CardID == cardId)).ToList();
