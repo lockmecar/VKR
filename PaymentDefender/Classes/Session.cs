@@ -8,12 +8,13 @@ namespace PaymentDefender
 {
     public class Session : ISession
     {
-        public Session(int id)
+        public Session(int id, string userLogin)
         {
             Id = id;
+            UserLogin = userLogin;
         }
 
         public int Id { get; set; }
-
+        public string UserLogin { get; set; }
     }
 }
