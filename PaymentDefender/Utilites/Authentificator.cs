@@ -19,7 +19,7 @@ namespace PaymentDefender
                 if (MD5Hasher.GetHash(password) == buf.PasswordHesh)
                 {
                     Console.WriteLine($"Аутентификация успешна");
-                    return SessionManager.CreateSession();
+                    return SessionManager.CreateSession(login);
                 }
                 else
                 {

@@ -25,9 +25,11 @@ namespace PaymentDefender
         public static List<User> Users = new List<User>();
         public static Dictionary<int, Session> Sessions = new Dictionary<int, Session>();
 
-        public static void AddSession(Session session)
+        public static void AddSession(Session session, string login)
         {
             Sessions.Add(session.Id, session);
+            int indx = FindIndexByLogin(login);
+            Users[indx].SessionId = session.Id;
         }
         public static void AddUser(User user)
         {
