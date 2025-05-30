@@ -16,16 +16,19 @@ namespace PaymentDefender
                 "login@gmail.com",
                 "petrov@yandex.ru"
             };
-            Users = new List<User>();
             foreach (string log in logins)
             {
                 Users.Add(JsonFileManager.ReadObject<User>(log));
             }
         }
 
-        public static List<User> Users { get; set; }
+        public static List<User> Users = new List<User>();
         public static Dictionary<int, Session> Sessions = new Dictionary<int, Session>();
 
+        public static void AddSession(Session session)
+        {
+            Sessions.Add(session.Id, session);
+        }
         public static void AddUser(User user)
         {
             Users.Add(user);
