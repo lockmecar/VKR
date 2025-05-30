@@ -44,5 +44,9 @@ namespace PaymentDefender
         {
             return Users.Where(u => u.PaymentCards.Any(pc => pc.CardID == cardId)).ToList();
         }
+        public static User GetUserByLogin(string login)
+        {
+            return Users.FirstOrDefault(u => u.EmailLogin == login);
+        }
     }
 }
