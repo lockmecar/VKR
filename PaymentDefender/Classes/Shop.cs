@@ -14,6 +14,6 @@ namespace PaymentDefender.Classes
             Popularity = popularity;
         }
         public string Name {  get; set; }
-        public int Popularity { get; set; }
+        public int Popularity { get; set; } // число от 1 до 10 - известность магазина
     }
 }
