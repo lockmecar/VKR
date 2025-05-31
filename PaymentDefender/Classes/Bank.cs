@@ -12,8 +12,7 @@ namespace PaymentDefender
         {
             List<string> logins = new List<string>()
             {
-                "ivan@yandex.ru",
-                "login@gmail.com",
+                "aboba@gmail.com",
                 "petrov@yandex.ru"
             };
             foreach (string log in logins)
