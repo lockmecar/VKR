@@ -1,13 +1,12 @@
-﻿using PaymentDefender.Classes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PaymentDefender.Utilites
-{
+namespace PaymentDefender
+{ 
     public static class AntiFrod
     {
         public static TransactionLevel CheckPay(float moneyCount, string login, string password, string cardNumber, DateTime date, string cvv,
