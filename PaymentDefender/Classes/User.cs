@@ -11,22 +11,27 @@ namespace PaymentDefender
     public class User : Person
     {
         public User(string fio, int age, Gender gender, string countryLiving, string citizenship, FamilySet familySet, float incomeLevel,
-            float savings, List<PaymentCard> paymentCards, long phoneNumber, string emailLogin, string passwordHesh)
+            float savings, List<PaymentCard> paymentCards, long phoneNumber, string emailLogin, string passwordHesh, float freqOfPay, string lastDevice)
             : base(fio, age, gender, countryLiving, citizenship, familySet, incomeLevel, savings, paymentCards, phoneNumber)
         {
             EmailLogin = emailLogin;
             PasswordHesh = passwordHesh;
             SessionId = -1;
+            FreqOfPay = freqOfPay;
+            LastDevice = lastDevice;
         }
 
         public string EmailLogin { get; set; } // Логин
         public string PasswordHesh { get; set; } // Хэш пароля
         public int SessionId { get; set; } // ID сессии
+        public float FreqOfPay {  get; set; } // Средняя периодичность платежей
+        public string LastDevice { get; set; } // Последнее устройство, с которого пользователь совершал платеж
 
-        public static User Create(IPerson person, string emailLogin, string password)
+
+        public static User Create(IPerson person, string emailLogin, string password, float freqOfPay, string lastDevice)
         {
             return new User(person.FIO, person.Age, person.Gender, person.CountryLiving, person.Citizenship, 
-                person.FamilySet, person.IncomeLevel, person.Savings, person.PaymentCards, person.PhoneNumber, emailLogin, password);
+                person.FamilySet, person.IncomeLevel, person.Savings, person.PaymentCards, person.PhoneNumber, emailLogin, password, freqOfPay, lastDevice);
         }
 
         public void PrintUserInfo()
