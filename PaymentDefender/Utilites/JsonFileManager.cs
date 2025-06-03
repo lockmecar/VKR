@@ -21,7 +21,7 @@ namespace PaymentDefender
         public static string SourcePath {  get; set; }
         public static void WriteObject<T>(T obj) where T : class // сериализация объекта класса в файл по заданному пути
         {
-            string filePath = $"{SourcePath}{obj.ToString()}.json";
+            string filePath = $"{SourcePath}\\{obj.ToString()}.json";
             if (!Directory.Exists(Path.GetDirectoryName(filePath)))
             {
                 Directory.CreateDirectory(Path.GetDirectoryName(filePath));
@@ -33,7 +33,7 @@ namespace PaymentDefender
 
         public static T ReadObject<T>(string emailLogin) where T : class  // десериализация объекта класса из файла по заданному пути
         {
-            string filePath = $"{SourcePath}{emailLogin}.json";
+            string filePath = $"{SourcePath}\\{emailLogin}.json";
             if (!File.Exists(filePath))
             {
                 throw new FileNotFoundException("Файл не найден по указанному пути.", filePath);
