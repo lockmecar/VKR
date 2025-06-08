@@ -13,7 +13,7 @@ namespace PaymentDefender
             Bank = bank;
             CardID = cardID;
             Date = date;
-            Cvv = MD5Hasher.GetHash(cvv);
+            Cvv = SHA256Hascher.GetHash(cvv);
             FioHolder = fioHolder;
             PaymentSystem = paymentSystem;
         }

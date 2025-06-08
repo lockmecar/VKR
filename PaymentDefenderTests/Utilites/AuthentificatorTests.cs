@@ -24,7 +24,7 @@ namespace PaymentDefender.Tests
             string password = "password";
 
             Person person1 = new Person("Иванов Иван Петрович", 24, Gender.Male, "РФ", "РФ", FamilySet.NotMarried, 60000, 100000, paymentCards1, 89633791187);
-            User user1 = User.Create(person1, login, MD5Hasher.GetHash(password), 5, "Motorola C99");
+            User user1 = User.Create(person1, login, SHA256Hascher.GetHash(password), 5, "Motorola C99");
             JsonFileManager.WriteObject(user1);
 
             int expectedId = 0;
@@ -50,7 +50,7 @@ namespace PaymentDefender.Tests
             string wrongPassword = "WrongPassword";
 
             Person person1 = new Person("Иванов Иван Петрович", 24, Gender.Male, "РФ", "РФ", FamilySet.NotMarried, 60000, 100000, paymentCards1, 89633791187);
-            User user1 = User.Create(person1, login, MD5Hasher.GetHash(password), 5, "Motorola C99");
+            User user1 = User.Create(person1, login, SHA256Hascher.GetHash(password), 5, "Motorola C99");
             JsonFileManager.WriteObject(user1);
 
             Session expected = null;
@@ -76,7 +76,7 @@ namespace PaymentDefender.Tests
             string wrongLogin = "WrongLogin";
 
             Person person1 = new Person("Иванов Иван Петрович", 24, Gender.Male, "РФ", "РФ", FamilySet.NotMarried, 60000, 100000, paymentCards1, 89633791187);
-            User user1 = User.Create(person1, login, MD5Hasher.GetHash(password), 5, "Motorola C99");
+            User user1 = User.Create(person1, login, SHA256Hascher.GetHash(password), 5, "Motorola C99");
             JsonFileManager.WriteObject(user1);
 
             Session expected = null;

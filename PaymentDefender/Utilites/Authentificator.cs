@@ -33,7 +33,7 @@ namespace PaymentDefender
             {
                 User buf = JsonFileManager.ReadObject<User>(login);
 
-                if (MD5Hasher.GetHash(password) == buf.PasswordHesh)
+                if (SHA256Hascher.GetHash(password) == buf.PasswordHesh)
                 {
                     Console.WriteLine($"Аутентификация успешна");
                     return SessionManager.CreateSession(login);
